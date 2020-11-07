@@ -64,6 +64,12 @@ services:
         links:
             - mysql:php-mysql
 
+    db:
+      container_name: php-mongo
+      image: mongo:4.0
+      volumes:
+        - db-data:/data/db:rw
+
     # Alternative PHP:7.2.6 + apache
     #php:
     #    build: php
@@ -78,4 +84,5 @@ services:
     #    ports:
     #        - "8083:80"
 
-
+volumes:
+  db-data: { }
